@@ -1,0 +1,31 @@
+#Contoller for te rbot we can have many controllers .
+#in this file we have 3 contollers:-
+#1.joint state contollers : to publish the state of the joint.
+#2. and two velocity contoller for each wheel
+
+
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50  
+ 
+ # Velocity Controllers not required for the diff drive pluging
+  right_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: right_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0}
+  left_velocity_controller:
+    type: effort_controllers/JointVelocityController
+    joint: left_wheel_joint
+    pid: {p: 100.0, i: 0.01, d: 10.0} 
+  
+ 
+ 
+
+  
+
+
+ 
+ 
+
+  

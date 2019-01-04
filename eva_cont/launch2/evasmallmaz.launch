@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="world_path" default="$(find eva_cont)/world/my.world"/>
+	<arg name="robot_ns" default="/"/>
+	
+	<include file="$(find eva_cont)/launch2/start_gazebo.launch" >
+		<arg name="world_path" value="$(arg world_path)"/>
+	</include>
+
+<!-- To spawn the robot from  evarobotmodel_simulator package (uplat evarobotmodel_simulator)--> 
+	<include file="$(find eva_cont)/launch2/spawn_evarobot.launch">
+		<arg name="robot_ns" value="$(arg robot_ns)"/>
+	</include>
+
+<!-- Upload contoller configuartion file be aware which yamel file you want to uplad 1 or 2  
+
+	<rosparam file="$(find eva_cont)/config/diff_controle.yaml" command="load" />
+ -->
+<!-- Contoller Manager : the argument must match the controllers name in yamel file    
+	<node name="xxx_controller" pkg="controller_manager" type="spawner"
+		respawn="false" output="screen" ns="/" args="joint_state_controller right_velocity_controller left_velocity_controller">
+
+-->
+<!-- for testing purpose 
+
+	<param name="rate" value="10" />
+	<param name="Kp" value="0.1" />
+	<param name="Ki" value="0.05" />
+	<param name="Kd" value="0.001" />
+
+
+ </node>
+ -->	
+
+</launch>
+
+
